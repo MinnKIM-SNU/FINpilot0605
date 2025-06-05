@@ -22,7 +22,7 @@
 
   <section id="startArea" class="hidden">
     <p>이것은 일본어 음성 지각을 확인하는 실험입니다. <br>조용한 환경에서 헤드폰을 착용하고 진행해 주세요.<br>음성이 확실하게 들릴 만큼 볼륨을 키워 주세요.<br>
-      소리를 듣고 'けこ'로 들리는지 'げこ'로 들리는지 클릭하여 응답하시면 됩니다.<br>음성이 애매하다고 생각되는 경우에도 더 가깝다고 느껴지는 발음을 골라 주셔야 합니다.
+      소리를 주의깊게 듣고 'けこ'로 들리는지 'げこ'로 들리는지 클릭하여 응답하시면 됩니다.<br>음성이 애매하다고 생각되는 경우에도 더 가깝다고 느껴지는 발음을 골라 주셔야 합니다.
       <br>준비되셨다면 <strong>Start</strong>를 누르세요.</p>
     <button id="startBtn" disabled>Start</button>
   </section>
@@ -51,7 +51,7 @@ const CSV_LIST  = ['example_cnfl.csv', 'example_ncnfl.csv'];
 let   CSV_PATH  = CSV_LIST[Math.floor(Math.random()*CSV_LIST.length)];
 
 const AUDIO_DIR  = 'audio/';
-const AUDIO_DELAY = 200;
+const AUDIO_DELAY = 20;
 const SOUND_OK   = 'okay.mp3';
 const SOUND_BEEP = 'beep.mp3'; = 'beep.mp3';
 
@@ -151,7 +151,7 @@ const SOUND_BEEP = 'beep.mp3'; = 'beep.mp3';
       fb.className=isCorrect?'correct':'wrong';
       fb.classList.remove('hidden');
       playAudio(isCorrect?SOUND_OK:SOUND_BEEP);
-      setTimeout(()=>nextTrial(),3500);
+      setTimeout(()=>nextTrial(),1100);
     }else{
       setTimeout(()=>nextTrial(),300);
     }
