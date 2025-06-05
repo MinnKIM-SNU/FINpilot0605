@@ -21,7 +21,9 @@
   <p id="loading">CSV 로딩 중...</p>
 
   <section id="startArea" class="hidden">
-    <p>준비가 되면 <strong>Start</strong>를 누르세요.</p>
+    <p>이것은 일본어 음성 지각을 확인하는 실험입니다. <br>조용한 환경에서 헤드폰을 착용하고 진행해 주세요.<br>음성이 확실하게 들릴 만큼 볼륨을 키워 주세요.<br>
+      소리를 듣고 'けこ'로 들리는지 'げこ'로 들리는지 클릭하여 응답하시면 됩니다.<br>음성이 애매하다고 생각되는 경우에도 더 가깝다고 느껴지는 발음을 골라 주셔야 합니다.
+      <br>준비되셨다면 <strong>Start</strong>를 누르세요.</p>
     <button id="startBtn" disabled>Start</button>
   </section>
 
@@ -31,14 +33,13 @@
   </section>
 
   <section id="trialArea" class="hidden">
-    <p id="instruction">어느 쪽으로 들리는지 선택하세요.</p>
     <div id="choiceArea"></div>
     <p id="feedback" class="hidden"></p>
   </section>
 
   <section id="finishArea" class="hidden">
     <h2>실험이 종료되었습니다!</h2>
-    <p>아래 버튼을 눌러 응답을 CSV 파일로 저장하세요.</p>
+    <p>참여해 주셔서 정말 감사합니다.<br>아래 버튼을 눌러 결과 파일을 저장한 뒤, minnkim@snu.ac.kr 또는 제 카카오톡을 통해 보내 주시면 감사하겠습니다.<br>제 종강에 도움을 주셔서 너무너무 감사합니다...!! 행복하세요!</p>
     <button id="downloadBtn">Download results.csv</button>
   </section>
 
@@ -55,9 +56,9 @@ const SOUND_OK   = 'okay.mp3';
 const SOUND_BEEP = 'beep.mp3'; = 'beep.mp3';
 
   // 반복 횟수
-  const PRE_REPS   = 3;
-  const TRAIN_REPS = 5;
-  const POST_REPS  = 3;
+  const PRE_REPS   = 2;
+  const TRAIN_REPS = 10;
+  const POST_REPS  = 2;
 
   /* ===== STATE ===== */
   let trials = [];
@@ -109,7 +110,7 @@ const SOUND_BEEP = 'beep.mp3'; = 'beep.mp3';
   function phaseMsg(type){
     $('#trialArea').classList.add('hidden');
     const msg= type==='train'
-      ? '지금부터는 <strong>트레이닝</strong>이 진행됩니다.<br>다음 버튼을 눌러 진행하세요.'
+      ? '지금부터는 <strong>트레이닝</strong>이 진행됩니다.<br>버튼을 누르시면, 정답이었는지 아닌지가 효과음과 함께 화면에 표시될 것입니다.<br>최대한 많은 정답을 맞힐 수 있도록 최선을 다해 주세요.<br>준비되셨다면 다음 버튼을 눌러 진행하세요.'
       : '지금부터는 <strong>확인 테스트</strong>를 진행합니다.<br>다음 버튼을 눌러 진행하세요.';
     $('#phaseMsg').innerHTML=msg;
     $('#phaseArea').classList.remove('hidden');
