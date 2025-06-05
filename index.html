@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <title>Forced‑choice Audio Perception Experiment</title>
+  <title>PILOT</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
   <style>
@@ -16,13 +16,13 @@
   </style>
 </head>
 <body>
-  <h1>Auditory Perception Experiment</h1>
+  <h1>+</h1>
 
   <p id="loading">CSV 로딩 중...</p>
 
   <section id="startArea" class="hidden">
-    <p>이것은 일본어 음성 지각을 확인하는 실험입니다. <br>조용한 환경에서 헤드폰을 착용하고 진행해 주세요.<br>음성이 확실하게 들릴 만큼 볼륨을 키워 주세요.<br>
-      소리를 주의깊게 듣고 'けこ'로 들리는지 'げこ'로 들리는지 클릭하여 응답하시면 됩니다.<br>음성이 애매하다고 생각되는 경우에도 더 가깝다고 느껴지는 발음을 골라 주셔야 합니다.
+    <p>이것은 일본어 음성 지각을 확인하는 실험입니다. <br>조용한 환경에서 반드시 헤드폰을 착용하고 진행해 주세요.<br>또, 소리가 확실하게 들릴 만큼 볼륨을 키워 주세요.<br>
+      소리를 주의깊게 듣고 'けこ'로 들리는지 'げこ'로 들리는지 클릭하여 응답하시면 됩니다.<br>애매하다고 생각되는 경우에도 더 가깝다고 느껴지는 발음을 골라 주셔야 합니다.<br>너무 깊게 생각하지 말고 선택해 주세요.<br>
       <br>준비되셨다면 <strong>Start</strong>를 누르세요.</p>
     <button id="startBtn" disabled>Start</button>
   </section>
@@ -57,9 +57,9 @@ const SOUND_OK   = 'okay.mp3';
 const SOUND_BEEP = 'beep.mp3';
 
   // 반복 횟수
-  const PRE_REPS   = 2;
-  const TRAIN_REPS = 10;
-  const POST_REPS  = 2;
+  const PRE_REPS   = 3;
+  const TRAIN_REPS = 15;
+  const POST_REPS  = 3;
 
   /* ===== STATE ===== */
   let trials = [];
@@ -152,9 +152,9 @@ const SOUND_BEEP = 'beep.mp3';
       fb.className=isCorrect?'correct':'wrong';
       fb.classList.remove('hidden');
       playAudio(isCorrect?SOUND_OK:SOUND_BEEP);
-      setTimeout(()=>nextTrial(),1100);
+      setTimeout(()=>nextTrial(),1000);
     }else{
-      setTimeout(()=>nextTrial(),300);
+      setTimeout(()=>nextTrial(),250);
     }
   }
 
